@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <title>{% block title%}{% endblock %}</title>
+</head>
+<body style="background-color: whitesmoke; overflow-y:hidden">
+<div  class="nav nav-tabs">
+    <li class="nav-item">
+		<a class="nav-link" href="/" style="color: black;">Main</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/search" style="color: black;">Search</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/main_favorites" style="color: black;">Main Favorites</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/error_log" style="color: black;">Error log</a>
+	</li>
+	<li class="nav-item" style="float: right">
+
+		<a class="nav-link" href="/login" style="color: black;">{{main}}</a>
+	</li>
+	</div>
+
+<div class="accounts_auth">
+<div class="main_accounts">
+<div class="accounts">
+    {% for i in main_data%}
+        <div class="card" style="background-color: lightslategray; margin: 10px">
+			<div class="card-header">
+			<span style="font-weight: bolder">{{i[1]}}</span>
+				</div>
+			<ul class ='nav' style="margin-left: 10px;margin-top: 5px">
+			<li class="nav-item" style="width: 50px"><a href='/account/{{i[1]}}' class="link">Send</a></li>
+			<li class="nav-item" style="width: 60px"><a href='/history/{{i[1]}}' class="link">History</a></li>
+			<li class="nav-item" style="width: 90px"><a href='/autoanswer/{{i[1]}}' class="link">Autoanswer</a></li>
+			<li class="nav-item" style="width: 90px"><a href='/favorites/{{i[1]}}' class="link">Favorites</a></li>
+
+				</ul>
+			<ul>
+				<li><span class="card-text" style="font-weight: bold">Send status: </span><span>{{i[4]}}</span></li>
+				<li><span class="card-text" style="font-weight: bold">Autoanswer status: </span><span>{{i[7]}}</span></li>
+				</ul>
+			<form action="{{'/stop_auto'}}" method="get">
+				<button type="submit" class="btn btn-outline-dark btn-sm" style="margin: 10px; float: right" name="log_auto" value="{{i[1]}}" title="StopAuto">StopAuto</button>
+				<button type="submit" class="btn btn-outline-dark btn-sm" style="margin-bottom: 10px; margin-top: 10px; float: right" name="log_send" value="{{i[1]}}" title="StopSend">StopSend</button>
+				<button type="submit" value="{{i[1]}}" name="del" style="float: left; margin: 10px;" class="btn btn-dark btn-sm">Del</button>
+				</form>
+			<button class="btn btn-outline-dark btn-sm" style="margin: 10px; float: right"><a href='/settings/{{i[1]}}' class="link">Setting</a></button>
+
+        </div>
+    {% endfor %}
+</div>
+
+<!--<script>-->
+<!--function toggle_visibility(id) {-->
+<!--       var e = document.getElementById(id);-->
+<!--       if(e.style.display == 'block')-->
+<!--          e.style.display = 'none';-->
+<!--       else-->
+<!--          e.style.display = 'block';-->
+<!--   }-->
+<!--</script>-->
+
+</div>
+	</div>
+<div class="main_content">
+    {% block body%}
+    {% endblock %}
+</div>
+
+</body>
+</html>

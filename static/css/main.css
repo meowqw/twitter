@@ -1,0 +1,107 @@
+.menu {
+    width: 300px;
+    position: absolute;
+
+}
+.main{
+    float: top;
+    position: relative;
+    margin-left: 300px;
+}
+
+.account{
+    width: auto;
+    height: auto;
+    background: darkorange;
+    padding: 10px;
+    margin: 10px;
+}
+
+.poster{
+    position:relative;
+    background:#ff6600;
+    height:20px;
+    width:150px;
+}
+.descr{
+    display:none;
+    margin-left:10px;
+    padding:10px;
+    background:#f3f3f3;
+    height:auto;
+    -moz-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow:0 5px 5px rgba(0,0,0,0.3);
+    box-shadow:0 5px 5px rgba(0,0,0,0.3);
+}
+.poster:hover .descr{
+    display:block;
+    position:absolute;
+    top:10px;
+    z-index:9999;
+    width:400px;
+}
+
+.auth{
+    position: relative;
+    float: left;
+    margin: 10px;
+}
+.accounts{
+    position: relative;
+
+}
+
+
+
+.but{
+    position: relative;
+    width: auto;
+    height: 30px;
+    background: #000000;
+    margin: 10px;
+    text-align: center;
+    float: left;
+    text-decoration: none;
+}
+.link{
+    text-decoration: none;
+    color: white;
+}
+
+.main_accounts {
+    overflow: scroll auto;
+    background-color: whitesmoke;
+    height: 95vh;
+    overflow-x: hidden;
+}
+.main_content{
+    overflow: scroll auto;
+    background-color: whitesmoke;
+    height: 95vh;
+    width: 70%;
+    float: left;
+    overflow-x: hidden;
+
+}
+
+.add_account{
+    float: left;
+}
+.history_item{
+    background: darkslategray;
+    margin: 12px;
+}
+
+
+.accounts_auth{
+    height: 100vh;
+    width: 25%;
+    float: left;
+}
+
+#header{
+    width: 100%;
+    height: 30px;
+    background-color: aliceblue;
+}
+

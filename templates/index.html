@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Account list
+{% endblock %}
+
+{%block body%}
+<div class="card" style="margin-left: 40px; margin-top: 10px">
+    <h5 class="card-header">New Account</h5>
+<form action="{{'auth'}}" style="width: 95%; margin-left: 25px;" method="post">
+    <div style="margin-top: 10px">
+	<div class="row mb-2">
+	    <input class="form-control form-control-sm" type="login" name="login" placeholder="login">
+		</div>
+	<div class="row mb-2 ">
+	    <input class="form-control form-control-sm" type="password" name="password" placeholder="password">
+	</div>
+	<div class="row mb-2">
+	    <input class="form-control form-control-sm" type="text" name="proxy" placeholder="proxy">
+	</div>
+		<div class="row mb-2">
+			<textarea class="form-control form-control-sm" type="text" name="user-agent" placeholder="user-agent" rows="2"></textarea>
+	</div>
+		<div class="row mb-2 ">
+	    <input class="form-control form-control-sm" type="text" name="number" placeholder="number">
+	</div>
+	<div class="row mb-2">
+	    <input class="btn btn-dark btn-sm" type="submit" value="auth">
+	</div>
+        </div>
+</form>
+	</div>
+{%endblock%}

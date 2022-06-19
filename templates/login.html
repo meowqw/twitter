@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <title>login</title>
+</head>
+<body style="background-color: whitesmoke; overflow-y:hidden">
+<div  class="nav nav-tabs">
+    <li class="nav-item">
+		<a class="nav-link" href="/" style="color: black;">Main</a>
+	</li>
+	</div>
+<div class="card" style="margin-left: 40px; margin-top: 10px; width: 1300px">
+    <h5 class="card-header">Auth</h5>
+<form action="{{'login'}}" style="width: 95%; margin-left: 25px;" method="post">
+    <div style="margin-top: 10px">
+	<div class="row mb-2">
+	    <input class="form-control form-control-sm" type="login" name="login" placeholder="login">
+		</div>
+	<div class="row mb-2 ">
+	    <input class="form-control form-control-sm" type="password" name="password" placeholder="password">
+	</div>
+	<div class="row mb-2">
+	    <input class="btn btn-dark btn-sm" type="submit">
+	</div>
+        </div>
+</form>
+	</div>
+</body>
+</html>

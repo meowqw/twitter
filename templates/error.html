@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Auto answer
+{% endblock %}
+
+
+{% block body%}
+<div class="card" style="margin-top: 10px; margin-left: 40px">
+	<div class="card-header">
+		<span style="font-weight: bold">Error: </span>
+		<span>{{data[1]}} </span>
+	</div>
+    <div style="margin: 10px">
+        <span style="font-weight: bolder">login: </span>
+        <span>{{data[0]}}</span>
+    </div>
+    <div class="card-body" style="margin: 10px">
+        <h5>{{data[2]}}</h5>
+    </div>
+    <div class="card-body">
+        <h6>Возможно будет полезна информация о том, что вызвало ошибку. Можно обратиться к администратору.</h6>
+        <p>{{data[3]}}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Send
+{% endblock %}
+
+
+{% block body%}
+<div class="card" style="margin-top: 10px; margin-left: 40px">
+	<div class="card-header">
+		<span style="font-weight: bold">Send start: </span>
+		<span>{{data[0][1]}} </span>
+	</div>
+	<form action="{{'generate'}}" enctype="multipart/form-data"  method="post" style="margin: 10px">
+		<div class="mb-3">
+			<label class="form-label" for="f">Img</label>
+		<input type="file" name="f" class="btn btn-sm">
+			</div>
+		<div class="mb-3">
+			<label class="form-label" for="login">Login</label>
+			<textarea  class="form-control" type="text" name="login"></textarea>
+		</div>
+		<p>
+			<label  class="form-label" for="text">Text</label>
+			<textarea class="form-control" type="text" rows="3" name="text"></textarea>
+		</p>
+		<p>
+			<input type="submit" class="btn btn-dark btn-sm" value="generate" name="gen">
+		</p>
+		<div>
+			{%if data[0][5] != None%}
+			{%if data[0][10] != None%}
+			<div class="card" style="width: 120px; height: 120px; margin: 5px">
+				<img src="{{url_for('static', filename=images)}}" style="width: 100px; height: 100px; margin: 10px">
+			</div>
+			{%endif%}
+		<div class="card" style="margin: 2px; width: 49%; float: left">
+                <ul class="list-group list-group-flush">
+{%if data[0][5] != None%}
+	{%for i in data[0][5].split('[end]')%}
+					<li class="list-group-item">{{i}}</li>
+	{%endfor%}
+				</ul>
+{%endif%}
+	</div>
+	<div class="card" style="margin: 2px; width: 49%; float: right">
+                <ul class="list-group list-group-flush">
+{%if data[0][5] != None%}
+	{%for i in data[0][6].split('\n')%}
+					<li class="list-group-item">{{i}}</li>
+	{%endfor%}
+				</ul>
+{%endif%}
+			</div>
+			<div>
+		<input type="submit" class="btn btn-dark btn-sm" name="send" value="send" style="margin: 10px; width: 98%">
+			</div>
+			{%endif%}
+			</div>
+</form>
+</div>
+{% endblock %}

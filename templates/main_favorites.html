@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <title>Main Favorites</title>
+</head>
+<body style="background-color: whitesmoke;">
+
+<div  class="nav nav-tabs">
+    <li class="nav-item">
+		<a class="nav-link" href="/" style="color: black;">Main</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" href="/search" style="color: black;">Search</a>
+	</li>
+    <li class="nav-item">
+		<a class="nav-link" href="/main_favorites" style="color: black;">Main Favorites</a>
+	</li>
+    <li class="nav-item">
+		<a class="nav-link" href="/error_log" style="color: black;">Error log</a>
+	</li>
+	<li class="nav-item" style="float: right">
+		<a class="nav-link" href="/login" style="color: black;">{{main}}</a>
+	</li>
+
+	</div>
+<script>
+function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+   }
+</script>
+<div class="main_content" style="margin-left: 15%;">
+<ul>
+    {% for i in data%}
+    <div class="card" style="background-color: white; margin: 10px">
+        <div>
+        <h5 class='card-header'>User login: {{i[1]}}</h5>
+        <button class="btn btn-dark btn-sm" style="margin-left: 10px; margin-top: 10px;" onclick="toggle_visibility('{{i[0]}}')">Chat history</button>
+        </div>
+        <div class="card" id={{i[0]}} style="display: none; margin: 5px">
+                <ul class="list-group list-group-flush">
+        {%for a in i[3].split('[end]')%}
+            <li class="list-group-item">{{a}}</li>
+        {% endfor %}
+                </ul>
+            </div>
+
+        <div class ='card' style="margin: 10px">
+            <div>
+                <span style="font-weight: bold">Last message: </span>
+                <span>{{i[3].split('[end]')[-1]}}</span>
+                </div>
+            <div>
+        <span style="font-weight: bold">Status send:</span>
+            <span>{{i[4]}}</span>
+            </div>
+            <div>
+                <span style="font-weight: bold">Link chat:</span>
+                <span>{{i[5]}}</span>
+                </div>
+        </div>
+        {%if i[7] == 1%}
+        <form action="{{'/addmainfavorites'}}" method="get">
+            <button class="btn btn-light btn-sm" style="margin: 10px; float: right" type="submit" name="del_main_favorites" value="{{i[1]}}, {{i[2]}}" title="add">-</button>
+        </form>
+        {%endif%}
+        </div>
+    {% endfor %}
+</ul>
+    </div>
+</body>
+</html>
