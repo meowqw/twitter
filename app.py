@@ -305,7 +305,7 @@ def generate_messages(login):
             # изображения (image)
             file = request.files['f']
             if file.filename != "":
-                file.save('/var/www/twitter/twitter/static/img/' + file.filename)
+                file.save('/var/www/twitter/static/img/' + file.filename)
 
             if login_u != '' and text != '':
 

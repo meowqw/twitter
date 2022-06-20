@@ -193,6 +193,8 @@ def send_message(driver, users_list, text_message, parent, img):
 
     check_send = 1
 
+    print('-------1-------')
+
     c = 0
     while c < len(users_list) and check_send == 1:
         try:
