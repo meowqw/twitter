@@ -64,6 +64,7 @@ def log_in(login, password, state, proxy, user, ua, num):
         driver.quit()
         error_status = 1
         error = str(e)
+        print(e)
 
     if error_status != 1:
         # проверка наличия куки файлов (checking for cookies)
