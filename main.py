@@ -330,6 +330,7 @@ def start_sending(login, password, state, proxy, parent, user, ua):
         update_login_list(login, None)
         update_img_account(parent, login, None)
     except Exception as e:
+        print(e)
         switch_work_status(parent, 0)
         error_status = 1
         # запись в лог (save in log)
