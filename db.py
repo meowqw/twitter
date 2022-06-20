@@ -116,21 +116,21 @@ def insert_account(data):
     except Error as e:
         print(e)
 
-with connect(
-        host=HOST,
-        user=USER,
-        port=PORT,
-        password=PASSWORD,
-        database=DB_NAME,
-) as connection:
-    with connection.cursor() as cursor:
-        try:
-            create_table_chats(connection)
-            create_table_account(connection)
-            create_table_users(connection)
-            create_table_errors(connection)
-        except:
-            print('sd')
+# with connect(
+#         host=HOST,
+#         user=USER,
+#         port=PORT,
+#         password=PASSWORD,
+#         database=DB_NAME,
+# ) as connection:
+#     with connection.cursor() as cursor:
+#         try:
+#             create_table_chats(connection)
+#             create_table_account(connection)
+#             create_table_users(connection)
+#             create_table_errors(connection)
+#         except:
+#             print('sd')
 
 
 
