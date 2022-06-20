@@ -170,6 +170,7 @@ def log_in(login, password, state, proxy, user, ua, num):
             return driver
     else:
         driver.quit()
+        print('DRIVER ERROR')
         # запись в лог (save in log)
         add_error_log(['Auth', str(error), user, login])
         return [error_status, error]
@@ -282,7 +283,7 @@ def send_message(driver, users_list, text_message, parent, img):
 
             time.sleep(random.randrange(12, 16))
         except Exception as e:
-            print(e)
+            # print(e)
             send_status = 0
 
             # + в базу чат с отправкой 0 (add to base chat with send equal to 0)
