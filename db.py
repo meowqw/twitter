@@ -3,7 +3,7 @@ from mysql.connector import connect, Error
 HOST = 'localhost'
 PORT = '3306'
 USER = 'user'
-PASSWORD = '2110'
+PASSWORD = 'Neet2001'
 DB_NAME = 'twitter'
 
 
