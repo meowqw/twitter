@@ -56,8 +56,9 @@ def log_in(login, password, state, proxy, user, ua, num):
 
         driver = webdriver.Chrome(executable_path=path_, options=options,
                                   seleniumwire_options=options_proxy)
-
+        print(driver)
         driver.get("https://twitter.com/home?lang=en")
+
         time.sleep(5)
 
     except Exception as e:
