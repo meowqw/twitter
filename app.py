@@ -252,37 +252,37 @@ def auto_answer(login):
                                main_data=db.select_all_data_account(main), main=main)
 
 
-# Старт автоответа (Start autoanswer)
-@app.route('/autoanswer/<string:login>/start_answer', methods=['post', 'get'])
-@login_required
-def auto_answer_start(login):
-    main = db.get_user(current_user.get_id())[0][1]
-    if request.method == 'POST':
-        text = request.form.get('text')
-        my_login = login
-        account_data = db.select_account_data(login)
-        my_password = account_data[0][2]
-        proxy = account_data[0][3]
-        ua = account_data[0][9]
-        num = account_data[0][11]
-        if text != '':
-            # строка сообщений (string message)
-            message_list = '[end]'.join(message_processing(text))
-            status = start_auto_answer(my_login, my_password, proxy, message_list,
-                                       main, ua, num)
-            # обработка ошибки (processing error)
-            if type(status) != list:
-                return render_template('index.html',
-                                       main_data=db.select_all_data_account(main), main=main)
-            else:
-                return render_template('error.html', data=[my_login, "Autoanswer",
-                                                           'Check if the proxy is working, '
-                                                           'restart autoanswer for this account',
-                                                           'Exception: ' + status[1]],
-                                       main_data=db.select_all_data_account(main), main=main)
-        else:
-            return render_template('index.html',
-                                   main_data=db.select_all_data_account(main), main=main)
+# # Старт автоответа (Start autoanswer)
+# @app.route('/autoanswer/<string:login>/start_answer', methods=['post', 'get'])
+# @login_required
+# def auto_answer_start(login):
+#     main = db.get_user(current_user.get_id())[0][1]
+#     if request.method == 'POST':
+#         text = request.form.get('text')
+#         my_login = login
+#         account_data = db.select_account_data(login)
+#         my_password = account_data[0][2]
+#         proxy = account_data[0][3]
+#         ua = account_data[0][9]
+#         num = account_data[0][11]
+#         if text != '':
+#             # строка сообщений (string message)
+#             message_list = '[end]'.join(message_processing(text))
+#             status = start_auto_answer(my_login, my_password, proxy, message_list,
+#                                        main, ua, num)
+#             # обработка ошибки (processing error)
+#             if type(status) != list:
+#                 return render_template('index.html',
+#                                        main_data=db.select_all_data_account(main), main=main)
+#             else:
+#                 return render_template('error.html', data=[my_login, "Autoanswer",
+#                                                            'Check if the proxy is working, '
+#                                                            'restart autoanswer for this account',
+#                                                            'Exception: ' + status[1]],
+#                                        main_data=db.select_all_data_account(main), main=main)
+#         else:
+#             return render_template('index.html',
+#                                    main_data=db.select_all_data_account(main), main=main)
 
 
 # --------------------------
