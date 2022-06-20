@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup as bs
 from selenium.webdriver.common.by import By
 
 path_ = '/usr/lib/chromium-browser/chromedriver'
-path_cookie = 'cookies/'
+path_cookie = '/var/www/twitter/cookies/'
 
 # 447570427251
 #
